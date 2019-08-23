@@ -1,0 +1,33 @@
+{
+  "name": "gcloud-functions-graphql",
+  "version": "1.0.0",
+  "description": "A basic boilerplate for creating and deploying a serverless GraphQL project on Google Cloud Functions",
+  "main": "./src/App.js",
+  "scripts": {
+    "offline:dev": "serverless offline start --config serverless-local.yml --useSeparateProcesses",
+    "local:dev": "cross-env NODE_ENV=local nodemon --exec ts-node src/App.ts --inspect=0.0.0.0"
+  },
+  "author": "Tyler Churchill",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/graphql": "^14.2.3",
+    "@types/node": "^7.0.5",
+    "cross-env": "^5.2.0",
+    "nodemon": "^1.19.1",
+    "serverless": "^1.50.0",
+    "serverless-google-cloudfunctions": "^2.3.2",
+    "serverless-offline": "^5.10.1",
+    "serverless-plugin-typescript": "^1.1.9",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.1.6"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.8.1",
+    "express": "^4.17.1",
+    "graphql": "^14.4.2",
+    "reflect-metadata": "^0.1.13",
+    "serverless-http": "^2.1.0",
+    "type-graphql": "^0.17.4"
+  }
+}

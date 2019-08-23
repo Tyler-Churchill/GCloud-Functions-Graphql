@@ -1,0 +1,39 @@
+service: graphql # NOTE: Don't put the word "google" in here
+
+provider:
+  name: google
+  runtime: nodejs8
+  project: PROJECT_NAME # <--- replace with project id
+  region: us-central1
+  # the path to the credentials file needs to be absolute
+  credentials: ./.gcloud/keyfile.json
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-google-cloudfunctions
+  - serverless-offline
+
+package:
+  include:
+    - src
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - .git/**
+
+functions:
+  http:
+    handler: http
+    events:
+      - http:
+          path: /
+          method: any
+  graphql:
+    handler: http
+    events:
+      - http:
+          path: /graphql
+          method: any
+custom:
+  serverless-offline:
+    host: 0.0.0.0
